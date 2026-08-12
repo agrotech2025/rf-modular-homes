@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -245,7 +245,7 @@
             right: 0;
             width: 60%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover;
+            background: url('imagens/casa-lago.jpg') center/cover;
             opacity: 0.15;
             mask-image: linear-gradient(to right, transparent, black 30%);
             -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
@@ -736,6 +736,59 @@
             box-shadow: var(--shadow-gold);
         }
 
+        /* Gallery Section */
+        .gallery {
+            background: var(--gray-50);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            grid-column: span 2;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin: 0;
+        }
+
+        .gallery-item:nth-child(4),
+        .gallery-item:nth-child(5) {
+            grid-column: span 3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item.planta img {
+            object-fit: contain;
+            background: var(--gray-100);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem 1.5rem 1.25rem;
+            background: linear-gradient(to top, rgba(10, 31, 61, 0.85), transparent);
+            color: var(--white);
+            font-weight: 600;
+        }
+
         /* Features Section */
         .features {
             background: var(--gradient-dark);
@@ -896,7 +949,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 3V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .cta-content {
@@ -1220,6 +1273,19 @@
             .hero-image-wrapper {
                 display: none;
             }
+
+            .gallery-item {
+                grid-column: span 3;
+            }
+
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(5) {
+                grid-column: span 3;
+            }
+
+            .gallery-item:nth-child(5) {
+                grid-column: span 6;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1276,6 +1342,12 @@
             section {
                 padding: 5rem 1.5rem;
             }
+
+            .gallery-item,
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(5) {
+                grid-column: span 6;
+            }
         }
 
         /* Scroll Animations */
@@ -1311,6 +1383,7 @@
                 <li><a href="#inicio" class="nav-link">Início</a></li>
                 <li><a href="#sobre" class="nav-link">Sobre</a></li>
                 <li><a href="#modelos" class="nav-link">Modelos</a></li>
+                <li><a href="#galeria" class="nav-link">Galeria</a></li>
                 <li><a href="#vantagens" class="nav-link">Vantagens</a></li>
                 <li><a href="#contacto" class="nav-link nav-cta">Contactar</a></li>
             </ul>
@@ -1363,7 +1436,7 @@
                 </div>
             </div>
             <div class="hero-image-wrapper" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Casa Modular Premium RF" class="hero-image">
+                <img src="imagens/casa-lago.jpg" alt="Casa Modular Premium RF" class="hero-image">
                 <div class="hero-image-overlay">
                     <div class="hero-image-tag">Modelo em Destaque</div>
                     <div class="hero-image-title">Premium T3 - 90m²</div>
@@ -1378,10 +1451,10 @@
             <div class="about-grid">
                 <div class="about-images" data-aos="fade-right">
                     <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Interior moderno">
+                        <img src="imagens/planta-38m2.jpg" alt="Planta do modelo 38m² com dois dormitórios">
                     </div>
                     <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Casa modular exterior">
+                        <img src="imagens/casa-fabrica.jpg" alt="Casa modular em produção na fábrica">
                     </div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
@@ -1451,7 +1524,7 @@
             <div class="models-grid">
                 <article class="model-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600&q=80" alt="Modelo Compact T1">
+                        <img src="imagens/casa-lago.jpg" alt="Modelo Compact T1">
                         <span class="model-badge">T1 • 30m²</span>
                     </div>
                     <div class="model-content">
@@ -1474,7 +1547,7 @@
 
                 <article class="model-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Modelo Expand T2">
+                        <img src="imagens/casa-mar.jpg" alt="Modelo Expand T2">
                         <span class="model-badge">T2 • 60m²</span>
                     </div>
                     <div class="model-content">
@@ -1497,7 +1570,7 @@
 
                 <article class="model-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Modelo Premium T3">
+                        <img src="imagens/casa-praia.jpg" alt="Modelo Premium T3">
                         <span class="model-badge">T3 • 90m²</span>
                     </div>
                     <div class="model-content">
@@ -1517,6 +1590,41 @@
                         </a>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Galeria</span>
+                <h2 class="section-title">As Nossas Casas em Qualquer Cenário</h2>
+                <p class="section-subtitle">
+                    Do lago ao mar, da fábrica ao seu terreno: veja alguns dos nossos modelos.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <figure class="gallery-item" data-aos="zoom-in">
+                    <img src="imagens/casa-lago.jpg" alt="Casa modular cinzenta junto a um lago">
+                    <figcaption>Refúgio junto ao lago</figcaption>
+                </figure>
+                <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="imagens/casa-mar.jpg" alt="Casa modular em madeira com vista para o mar">
+                    <figcaption>Vista para o mar</figcaption>
+                </figure>
+                <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="imagens/casa-praia.jpg" alt="Casa modular branca em praia tropical">
+                    <figcaption>Estilo tropical</figcaption>
+                </figure>
+                <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="imagens/casa-fabrica.jpg" alt="Casa modular em produção na fábrica">
+                    <figcaption>Produção em fábrica</figcaption>
+                </figure>
+                <figure class="gallery-item planta" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="imagens/planta-38m2.jpg" alt="Planta do modelo de 38m² com dois dormitórios">
+                    <figcaption>Modelo 38m² — planta interior</figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -1805,6 +1913,7 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#sobre">Sobre Nós</a></li>
                     <li><a href="#modelos">Modelos</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
                     <li><a href="#vantagens">Vantagens</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
